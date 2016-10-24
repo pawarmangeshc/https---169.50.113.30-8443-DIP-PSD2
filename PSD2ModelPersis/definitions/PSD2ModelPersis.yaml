@@ -1,0 +1,221 @@
+paths:
+  /PaymentAccountSubscriptions:
+    get:
+      tags:
+        - PaymentAccountSubscription
+      operationId: PaymentAccountSubscription.getSubscriptionDetails
+      parameters:
+        - $ref: '#/parameters/accountId'
+        - $ref: '#/parameters/subscriptionId'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    post:
+      tags:
+        - PaymentAccountSubscription
+      operationId: PaymentAccountSubscription.createSubscription
+      parameters:
+        - name: PaymentAccountSubscription
+          required: true
+          in: body
+          schema:
+            $ref: '#/definitions/PaymentAccountSubscription'
+          description: Payment Account Subscription Data
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    patch:
+      tags:
+        - PaymentAccountSubscription
+      operationId: PaymentAccountSubscription.modifySubscription
+      parameters:
+        - name: PaymentAccountSubscription
+          required: false
+          in: body
+          schema:
+            $ref: '#/definitions/PaymentAccountSubscription'
+          description: Modify Subscription Data
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    put:
+      tags:
+        - PaymentAccountSubscription
+      operationId: PaymentAccountSubscription.cancelSubscription
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+  /PaymentAccountTransactionSubscriptions:
+    get:
+      tags:
+        - PaymentAccountTransactionSubscription
+      operationId: PaymentAccountTransactionSubscription.getSubscriptionDetails
+      parameters:
+        - $ref: '#/parameters/accountId'
+        - $ref: '#/parameters/subscriptionId'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    post:
+      tags:
+        - PaymentAccountTransactionSubscription
+      operationId: PaymentAccountTransactionSubscription.createSubscription
+      parameters:
+        - name: PaymentAccountTransactionSubscription
+          required: false
+          in: body
+          schema:
+            $ref: '#/definitions/PaymentAccountTransactionSubscription'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    patch:
+      tags:
+        - PaymentAccountTransactionSubscription
+      operationId: PaymentAccountTransactionSubscription.modifySubscription
+      parameters:
+        - name: PaymentAccountTransactionSubscription
+          required: false
+          in: body
+          schema:
+            $ref: '#/definitions/PaymentAccountTransactionSubscription'
+          description: Modify Subscription Data
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+    put:
+      tags:
+        - PaymentAccountTransactionSubscription
+      operationId: PaymentAccountTransactionSubscription.cancelSubscription
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/SubscriptionStatus'
+      deprecated: false
+definitions:
+  SubscriptionStatus:
+    properties:
+      SubscriptionStatus:
+        type: string
+      SubscriptionValidityDate:
+        type: string
+      SubscriptionStartDate:
+        type: string
+      SubscriptionID:
+        type: string
+    additionalProperties: false
+  PaymentAccountTransactionSubscription:
+    properties:
+      SubscriptionCancellationDate:
+        type: string
+      SubscriptionModificationDate:
+        type: string
+      Status:
+        type: string
+      SubscriptionValidityDate:
+        type: string
+      SubscriptionDate:
+        type: string
+      PaymentAccountTransactionSubscriptionsId:
+        type: string
+    additionalProperties: false
+    description: Payment Account Transaction Subscription Details
+  PaymentAccountSubscription:
+    properties:
+      Status:
+        type: string
+      SubscriptionValidityDate:
+        type: string
+      SubscriptionDate:
+        type: string
+      PaymentCcy:
+        type: string
+      MaxPaymentAmountLimit:
+        type: string
+      AccountID:
+        type: string
+      TPPID:
+        type: string
+      TPPName:
+        type: string
+      PaymentAccountSubscriptionID:
+        type: string
+    additionalProperties: false
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: psd2modelpersis
+  version: 1.0.0
+  title: PSD2ModelPersis
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
+parameters:
+  accountId:
+    name: accountId
+    type: string
+    required: false
+    in: query
+    description: AccountID
+  subscriptionId:
+    name: subscriptionId
+    type: string
+    required: false
+    in: query
+    description: SubscriptionID

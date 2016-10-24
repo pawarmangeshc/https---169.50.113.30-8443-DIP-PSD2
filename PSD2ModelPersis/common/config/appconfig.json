@@ -1,0 +1,138 @@
+{
+  "dataMap":  {
+    "findBusinessByKey": {
+      "prefix": "rnel",
+      "reqSchemaName":"RetrieveBusinessRq.1.schema.json",
+      "backendpath": "/mock/findbusinessbykey"
+    },
+    "findBusiness": {
+      "prefix": "rnel",
+      "reqSchemaName":"RetrieveBusinessRq.1.schema.json",
+      "backendpath": "/mock/findbusiness"
+    }
+  },
+  "enableReqValidation": true,
+  "statusHandler": {
+    "enableStackinError": true,
+    "success": {
+      "0": {
+
+        }
+    },
+    "warning": {
+      "4": {
+
+      }
+    },
+    "error": {
+      "8": {
+        "httpcode": 400,
+        "name": "BackendSystemEditError",    
+        "severity": "Edit Error", 
+        "statusDesc": "Invalid Value(s) to Host"
+      },
+      "12": {
+        "httpcode": 503,
+        "name": "BackendSystemProcessError",       
+        "severity": "Process Error", 
+        "statusDesc": "Host system Failure"
+      },
+      "16": {
+        "httpcode": 503,
+        "name": "BackendSystemNotAvailableError", 
+        "severity": "System Error", 
+        "statusDesc": "Host System is not available"
+      },
+      "-1": {
+        "httpcode": 503,
+        "name": "BackendSystemUnknownError", 
+        "severity": "System Error", 
+        "statusDesc": "Host System returns unconfigured Return Code"
+      },
+      "EXE000": {
+        "httpcode": 500,
+        "name": "ApplicationError", 
+        "severity": "Error", 
+        "statusDesc": "Application Error"
+      },      
+      "EXE001": {
+        "httpcode": 500,
+        "name": "BackendSystemFailure",
+        "severity": "Error", 
+        "statusDesc": "System does not provide valid Return/Reason Code"
+      },
+      "EXE002": {
+        "httpcode": 500,
+        "name": "BackendConnectionError",
+        "severity": "Error", 
+        "statusDesc": "Connection to the backend system fails"
+      },
+      "EXE003": {
+        "httpcode": 422,
+        "name": "SchemaValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Schema Validation fails: "
+      },         
+      "EXD001": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Missing Mandatory Header "
+      },
+      "EXD002": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 0000001 through 9999998 inclusive, Invalid "
+      },
+      "EXD003": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 0001 through 9999 inclusive, Invalid "
+      },
+      "EXD004": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 001 through 999 inclusive, Invalid "
+      }, 
+      "EXD005": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 00 through 99 inclusive, Invalid "
+      },   
+      "EXD006": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 00.00001 through 99.99999 inclusive, Invalid "
+      },
+      "EXD007": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range 0.00 through 9999999.99 inclusive, Invalid "
+      },
+      "EXD008": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Value must be in the range ['early', 'regular', 'any'], Invalid "
+      },
+      "EXD009": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Missing Mandatory Payload Field "
+      },
+      "EXD010": {
+        "httpcode": 422,
+        "name": "DataValidationError",
+        "severity": "Error", 
+        "statusDesc": "Request Data Validation Error: Unprocessable Data"
+      }   
+    }
+  }
+}

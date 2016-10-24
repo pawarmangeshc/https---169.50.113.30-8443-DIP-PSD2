@@ -1,0 +1,9 @@
+{
+  "mongoDb": {
+    "host": "9.121.57.239",
+    "port": 27018,
+    "database": "psd2mongodb",
+    "name": "mongoDb",
+    "connector": "mongodb"
+  }
+}

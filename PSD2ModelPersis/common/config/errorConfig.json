@@ -1,0 +1,45 @@
+{
+  "severity": {
+    "error": "ERROR",
+    "info": "INFO",
+    "warning": "WARNING"
+  },
+    "PSDERR1000": {
+    "additionalStatusCode": 1000,
+    "additionalServerStatusCode": "DB-ERROR",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "DB Error."
+  },
+
+  "PSDERR1001": {
+    "additionalStatusCode": 1001,
+    "additionalServerStatusCode": "BACKEND-API-ERROR",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "BackEnd API Error."
+  },
+  "PSDERR1002": {
+    "additionalStatusCode": 1002,
+    "additionalServerStatusCode": "ERROR_INVALID_HTTP_METHOD",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "URI with Specified HTTP method doesn't exist"
+  },
+  "PSDERR1003": {
+    "additionalStatusCode": 1003,
+    "additionalServerStatusCode": "ERROR_UNDEFINED_UNSUPPORTED_CONTENT_TYPE",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "Undefined or Unsupported Content-type"
+  },
+  "PSDERR1004": {
+    "additionalStatusCode": 1004,
+    "additionalServerStatusCode": "ERROR_INVALID_JSON",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "Invalid JSON"
+  },
+  "PSDERR350": {
+    "additionalStatusCode": 350,
+    "additionalServerStatusCode": "SYSTEM_NOT_RESPONDING",
+    "additionalSeverity": "Error",
+    "additionalStatusDesc": "There was a timeout error while processing the transaction"
+  }
+ 
+}

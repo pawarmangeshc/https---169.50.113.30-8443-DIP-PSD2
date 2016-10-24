@@ -1,0 +1,15 @@
+{
+"alljs" : [
+  "common/**/*.js",
+  "server/middleware/acl/*.js"
+],
+"plato" : {
+  "js": [
+   "common/**/*.js",
+   "server/middleware/acl/*.js"
+  ]
+},
+"buildDir" : "./dist",
+"libDir" : "./dist/lib",
+"browserName": ""
+}

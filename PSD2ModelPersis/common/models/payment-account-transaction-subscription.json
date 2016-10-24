@@ -1,0 +1,38 @@
+{
+  "name": "PaymentAccountTransactionSubscription",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "PaymentAccountTransactionSubscriptionID": {
+      "type": "string",
+      "required": false
+    },
+    "TPPName": {
+      "type": "number",
+      "required": false
+    },
+    "TPPid": {
+      "type": "number",
+      "required": false
+    },
+    "AccountID": {
+      "type": "number",
+      "required": false
+    },
+    "SubscriptionDate": {
+      "type": "string",
+      "required": false
+    },
+    "SubscriptionValidityDate": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
